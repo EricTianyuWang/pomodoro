@@ -11,3 +11,5 @@ export default class App extends React.Component {
 }
 
 // GIT TEST COMMENT
+
+//MAGGIE TEST COMMENT
