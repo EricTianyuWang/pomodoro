@@ -6,6 +6,7 @@ import Home from './Home.js'
 import Routing from './Routing.js'
 
 import Clock from './Clock';
+// import Profile from './Profile';
 
 
 export default class App extends React.Component {
