@@ -1,16 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
-import Profile from './Profile.js';
+import Profile from './Profile.js'
 
 
-// function Timer() {
-//   return <h2>Timer</h2>;
-// }
+class AppRouter extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      user: this.props.email,
+    }
+  }
 
 
 
-function AppRouter() {
+render(){
+  console.log(this.state.user)
   return (
     <Router>
       <div>
@@ -33,6 +38,7 @@ function AppRouter() {
       </div>
     </Router>
   );
+}
 }
 
 export default AppRouter;

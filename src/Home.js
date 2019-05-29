@@ -27,12 +27,12 @@ class Home extends React.Component {
     this.setState({message: ""});
     e.preventDefault();
     
-    const usersRef = firebase.database().ref("users")
-    let user={
-      email: this.state.email,
-      pass: this.state.pass,
-    }
-    usersRef.push(user)
+    // const usersRef = firebase.database().ref("users")
+    // let user={
+    //   email: this.state.email,
+
+    // }
+    // usersRef.push(user)
     
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -65,9 +65,9 @@ class Home extends React.Component {
     const usersRef = firebase.database().ref("users")
     let user={
       email: this.state.email,
-      pass: this.state.pass,
+     // pass: this.state.pass,
     }
-    usersRef.push(user)
+    
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
@@ -77,6 +77,7 @@ class Home extends React.Component {
         promise.then((result)=>{
 
           this.setState({submitted: true})
+          usersRef.push(user)
         },
         (error)=>{
           (this.setState({message: error.message}));
