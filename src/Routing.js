@@ -7,7 +7,11 @@ import { Menu, Icon } from 'antd';
 
 
 function Index() {
-  return <div><h2><p>Welcome to the Best Pomodoro Timer!</p>Developed by Annie, Eric, and Maggie</h2>
+  return <div>
+    <h2>
+      <p><strong>Welcome to the Best Pomodoro Timer!</strong></p>
+      Developed by Annie, Eric, and Maggie
+    </h2>
 
   </div>;
 }
@@ -33,9 +37,6 @@ render(){
 
   <Router>
       <div>
-        {/* <nav> */}
-          {/* <ul> */}
-
           <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
             <Menu.Item key="home">
               <Link to="/">Home</Link> 
@@ -46,11 +47,7 @@ render(){
             <Menu.Item key="profile">
               <Link to="/profile/">Profile</Link>
             </Menu.Item>
-
           </Menu>
-
-          {/* </ul> */}
-        {/* </nav> */}
 
         <Route 
           path="/" exact component={Index} />

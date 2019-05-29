@@ -13,6 +13,7 @@ export class Clock extends Component {
             seconds: updatedTime
         })
     }
+    
     timer = (name, startTime) => {
         return (
             <div>
