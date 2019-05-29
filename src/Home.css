@@ -1,0 +1,19 @@
+.landingPage {
+    padding-top: 50px;
+    padding-left: 400px;
+}
+
+.signIn {
+    display:inline-block;margin-right:20px;
+}
+
+.signUp {
+    display: inline-block;
+}
+
+.welcomeMessage{
+    font-size: 245%;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 5px;
+}
