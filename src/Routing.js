@@ -1,15 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Timer from './Timer.js'
+import Timer from './Timer.js';
+import Profile from './Profile.js';
 
 
 // function Timer() {
 //   return <h2>Timer</h2>;
 // }
 
-function Profile() {
-  return <h2>Profile</h2>;
-}
+
 
 function AppRouter() {
   return (
