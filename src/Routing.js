@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
 import Profile from './Profile.js'
 
+import { Menu, Icon } from 'antd';
+
+
 function Index() {
   return <div><h2><p>Welcome to the Best Pomodoro Timer!</p>Developed by Annie, Eric, and Maggie</h2>
-  
+
   </div>;
 }
 
@@ -17,41 +20,50 @@ class AppRouter extends React.Component{
     }
   }
 
-
-
-
+  handleClick = e => {
+    console.log('click ', e);
+    this.setState({
+      current: e.key,
+    });
+  };
 
 render(){
   console.log(this.state.user)
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            {/* <li> */}
-            <Link to="/">Home</Link>
-            <br/>
-              <Link to="/timer">Timer</Link>
-            {/* </li>
-            <li> */}
-            <br/>
-              <Link to="/profile/">Profile</Link>
-            {/* </li> */}
- 
-          </ul>
-        </nav>
 
-        <Route path="/" exact component={Index} />
+  <Router>
+      <div>
+        {/* <nav> */}
+          {/* <ul> */}
+
+          <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+            <Menu.Item key="home">
+              <Link to="/">Home</Link> 
+            </Menu.Item>
+            <Menu.Item key="timer">
+              <Link to="/timer">Timer</Link> 
+            </Menu.Item>
+            <Menu.Item key="profile">
+              <Link to="/profile/">Profile</Link>
+            </Menu.Item>
+
+          </Menu>
+
+          {/* </ul> */}
+        {/* </nav> */}
+
+        <Route 
+          path="/" exact component={Index} />
         <Route
-  path='/timer'
-  render={(props) => <Timer {...props} user={this.state.user} />}
-/>
-<Route
-  path='/profile'
-  render={(props) => <Profile {...props} user={this.state.user} />}
-/>
+          path='/timer'
+          render={(props) => <Timer {...props} user={this.state.user} />}
+        />
+        <Route
+          path='/profile'
+          render={(props) => <Profile {...props} user={this.state.user} />}
+        />
       </div>
-    </Router>
+  </Router>
   );
 }
 }
