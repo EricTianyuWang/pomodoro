@@ -1,10 +1,11 @@
 @import "~antd/dist/antd.css";
 
-.h1 {
-  color: skyblue
-}
 .App {
   text-align: center;
+}
+h2{
+  text-align: center;
+  margin: auto;
 }
 
 .App-logo {
