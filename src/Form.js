@@ -9,7 +9,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       title: "",
-      text: ""
+      text: "",
+      userKey: "",
     }
   }
 
@@ -31,17 +32,36 @@ export default class App extends React.Component {
 
   sendToDatabase = () => {
     var data = {
-        title: this.state.title,
-        text: this.state.text
+      title: this.state.title,
+      text: this.state.text
     }
-    firebase.database().ref('users/').push(data); //might change users
+    var obj = firebase.database().ref('users/');
+    var userEmail = "";
+    obj.orderByChild('email').equalTo(this.props.user).on("value", (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        userEmail = childSnapshot.key;
+        console.log(userEmail);
+
+     });
+    });
+    console.log(userEmail)
+    firebase.database().ref('users/'+userEmail+'/writing/').push(data);
     console.log("Sent to data base")
   }
+
+  getKey = () => {
+    
+    // obj.orderByChild('email').equalTo(this.props.user).on("value", function(snapshot) {
+    //   snapshot.forEach((function(child) { console.log(child.key) }); 
+    // });
+
+    
+
+}
 
   render() {
     return(
       <div>
-        {this.props.user}
         <h1><b>Write down your thoughts...</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
