@@ -9,8 +9,9 @@ render(){
     //console.log(this.state.user);
     console.log(this.props.user)
 return(
-    <div> <Clock user = {this.props.user}/>
-<Form user = {this.props.user}/>
+    <div> 
+        <Clock user = {this.props.user}/>
+        <Form user = {this.props.user}/>
     </div>
 
 )
