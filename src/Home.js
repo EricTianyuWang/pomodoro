@@ -18,12 +18,13 @@ class Home extends React.Component {
             submitted: false,
             email:"",
             pass:"",
+            message:"",
 
         }
     }
 
   handleSignIN=(e)=> {
-    
+    this.setState({message: ""});
     e.preventDefault();
     
     const usersRef = firebase.database().ref("users")
@@ -43,8 +44,8 @@ class Home extends React.Component {
 
           this.setState({submitted: true})
         },
-        function(error){
-          (console.log(error.message));
+        (error)=>{
+          (this.setState({message: error.message}));
         })
       }
     });
@@ -57,6 +58,7 @@ class Home extends React.Component {
 
   handleSignUP = (e) =>
   {
+    this.setState({message: ""});
 
     e.preventDefault();
     
@@ -76,8 +78,8 @@ class Home extends React.Component {
 
           this.setState({submitted: true})
         },
-        function(error){
-          (console.log(error.message));
+        (error)=>{
+          (this.setState({message: error.message}));
         })
       }
     });
@@ -153,7 +155,10 @@ handlePassword = (event) => {
         <FormItem>
           <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
         </FormItem>
-      </Form></div>
+      </Form>
+      {this.state.message}
+      </div>
+      
         )
     }
     else{
@@ -161,7 +166,7 @@ handlePassword = (event) => {
 
             <div>
 
-            <Routing/>
+            <Routing email = {this.state.email}/>
 
 
             </div>
