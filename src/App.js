@@ -1,17 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Form from './Form.js';
 import './App.css';
+
 import Home from './Home.js'
 import Routing from './Routing.js'
 
+import Clock from './Clock';
+
+
 export default class App extends React.Component {
+
   render() {
     return(
-      <div></div>
+
+
+      <div>
+        <Clock/>
+        <Form/>
+      </div>
+
     );
   }
 }
-
-// GIT TEST COMMENT
-
-//MAGGIE TEST COMMENT
