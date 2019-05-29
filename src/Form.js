@@ -41,6 +41,7 @@ export default class App extends React.Component {
   render() {
     return(
       <div>
+        {this.props.user}
         <h1><b>Write down your thoughts...</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />

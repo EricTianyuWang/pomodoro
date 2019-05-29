@@ -4,6 +4,7 @@ import Timer from './Timer.js';
 import Profile from './Profile.js'
 
 
+
 class AppRouter extends React.Component{
   constructor(props){
     super(props);
@@ -11,6 +12,8 @@ class AppRouter extends React.Component{
       user: this.props.email,
     }
   }
+
+
 
 
 
@@ -33,8 +36,14 @@ render(){
         </nav>
 
 
-        <Route path="/timer/" component={Timer} />
-        <Route path="/profile/" component={Profile} />
+        <Route
+  path='/timer'
+  render={(props) => <Timer {...props} user={this.state.user} />}
+/>
+<Route
+  path='/profile'
+  render={(props) => <Profile {...props} user={this.state.user} />}
+/>
       </div>
     </Router>
   );
