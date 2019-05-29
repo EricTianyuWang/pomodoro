@@ -7,7 +7,7 @@ export class Clock extends Component {
     render() {
         return (
             <div>
-            <h1> Pomodoro Timer </h1>
+            <h2> Pomodoro Timer </h2>
             <Timer
                 initialTime={1500000}
                 direction = "backward"
@@ -31,7 +31,7 @@ export class Clock extends Component {
                 )}
             </Timer>
 
-            <h1> Break Timer </h1>
+            <h2> Break Timer </h2>
             <Timer
                 initialTime={300000}
                 direction = "backward"
