@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Timer from './Timer.js'
 
 
-
-function Timer() {
-  return <h2>Timer</h2>;
-}
+// function Timer() {
+//   return <h2>Timer</h2>;
+// }
 
 function Profile() {
   return <h2>Profile</h2>;
@@ -17,12 +17,13 @@ function AppRouter() {
       <div>
         <nav>
           <ul>
-            <li>
+            {/* <li> */}
               <Link to="/timer">Timer</Link>
-            </li>
-            <li>
+            {/* </li>
+            <li> */}
+            <br/>
               <Link to="/profile/">Profile</Link>
-            </li>
+            {/* </li> */}
  
           </ul>
         </nav>

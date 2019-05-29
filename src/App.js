@@ -16,8 +16,7 @@ export default class App extends React.Component {
 
 
       <div>
-        <Clock/>
-        <Form/>
+        <Home/>
       </div>
 
     );
