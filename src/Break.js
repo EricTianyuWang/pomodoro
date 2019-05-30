@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import Timer from "react-compound-timer";
-import {Button} from 'antd';
+import {Button, Icon} from 'antd';
 import './Clock.css';
 
 export class Break extends Component {
     render() {
         return (
             <div>
-            <h2> Break Timer </h2>
+            {/* <h2> Break Timer </h2> */}
             <Timer
-                initialTime={300000}
+                initialTime={299000}
                 direction = "backward"
                 startImmediately={false}
             >
@@ -17,14 +17,19 @@ export class Break extends Component {
                     <React.Fragment>
                         <div className="timer">
                         <div className="timer_text">
-                            <Timer.Minutes /> :
-                            <Timer.Seconds /> 
+                            <div className="minutes">
+                                0<Timer.Minutes /> :
+                            </div>
+                            <div className="seconds">
+                                <Timer.Seconds /> 
+                            </div>
+                           
                         </div>
                         <br />
-                        <div>
-                            <Button onClick={resume} size="large">Start</Button>
-                            <Button onClick={pause} size="large">Pause</Button>
-                            <Button onClick={reset} size="large">Reset</Button>
+                        <div className="buttons">
+                            <Button onClick={resume} size="large" icon="caret-right">Start</Button>
+                            <Button onClick={pause} size="large" icon="pause">Pause</Button>
+                            <Button onClick={reset} size="large" icon="undo">Reset</Button>
                         </div>
                         </div>
                     </React.Fragment>
