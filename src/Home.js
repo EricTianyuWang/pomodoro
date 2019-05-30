@@ -125,7 +125,7 @@ handlePassword = (event) => {
     if(!this.state.submitted){
     return (
       <div class = "landingPage">
-          <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1>
+          {/* <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1> */}
           <h1>Please Login Here!</h1>
           <Form inline onSubmit={this.handleSubmit}>
           <h2><FormItem {...formItemLayout}>
