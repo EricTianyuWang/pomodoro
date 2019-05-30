@@ -8,12 +8,37 @@ import { Menu, Icon } from 'antd';
 const { SubMenu }  = Menu;
 
 function Index() {
-  return <div>
-    <h2>
-      <p><strong>Welcome to the Best Pomodoro Timer!</strong></p>
-      Developed by Annie, Eric, and Maggie
-    </h2>
 
+  var styles1 = {
+    paddingTop:50,
+    paddingLeft:400,
+  };
+
+  var styles2 = {
+    paddingLeft:50, 
+    paddingRight:50,
+  };
+
+
+  return <div>
+    <h1 style={styles1}>Welcome to the Pomodoro Timer</h1>
+    <div style={styles2}>
+      <p>
+          The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
+          The technique uses a timer to break down into intervals, traditionally 25 minutes in length, separated by short breaks.
+          Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped 
+          kitchen timer that Cirillo used as a univeristy student.
+      </p>
+      <p> 
+          The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
+          Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
+          has been adopted in pair porgramming contexts. /n
+      </p>
+      <p>
+        We hope you give it a try & enjoy. 
+      </p>
+      <p>Annie, Eric, and Maggie</p>
+    </div>   
   </div>;
 }
 
