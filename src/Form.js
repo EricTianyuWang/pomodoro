@@ -11,7 +11,6 @@ export default class App extends React.Component {
     this.state = {
       title: "",
       text: "",
-      userKey: "",
     }
   }
 
@@ -36,18 +35,22 @@ export default class App extends React.Component {
       title: this.state.title,
       text: this.state.text
     }
-    var obj = firebase.database().ref('users/');
+    const obj = firebase.database().ref('users/');
+    var userKey = "";
     var userEmail = "";
-    obj.orderByChild('email').equalTo(this.props.user).on("value", (snapshot) => {
+    obj.orderByChild('email').once("value", (snapshot) => {
       snapshot.forEach((childSnapshot) => {
-        userEmail = childSnapshot.key;
-        console.log('user email' + userEmail);
-        // firebase.database().ref('users/'+userEmail+'/writing/').push(data);
+        userKey = childSnapshot.key;
+        userEmail = childSnapshot.val().email;
+        
+        if (userEmail === this.props.user) {
+          //console.log("user key: "+userKey)
+          //console.log("user email: "+userEmail)
+          firebase.database().ref('users/'+userKey+'/writing/').push(data);
+        }
+
      });
     });
-    //console.log(userEmail)
-    //firebase.database().ref('users/'+userEmail+'/writing/').push(data);
-    //console.log("Sent to data base")
   }
 
   render() {
