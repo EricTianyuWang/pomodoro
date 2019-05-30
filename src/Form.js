@@ -4,13 +4,14 @@ import {Input, Button} from 'antd';
 import firebase from './firebase';
 import './Form.css';
 
-export default class App extends React.Component {
+export default class Form extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       text: "",
+      user: this.props.user,
     }
   }
 
@@ -30,34 +31,39 @@ export default class App extends React.Component {
     this.sendToDatabase();
   }
 
-  sendToDatabase = () => {
+  sendToDatabase = async() => {
     var data = {
-      title: this.state.title,
-      text: this.state.text
+      email: this.state.user,
+        title: this.state.title,
+        text: this.state.text
     }
-    const obj = firebase.database().ref('users/');
-    var userKey = "";
-    var userEmail = "";
-    obj.orderByChild('email').once("value", (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        userKey = childSnapshot.key;
-        userEmail = childSnapshot.val().email;
-        
-        if (userEmail === this.props.user) {
-          //console.log("user key: "+userKey)
-          //console.log("user email: "+userEmail)
-          firebase.database().ref('users/'+userKey+'/writing/').push(data);
-        }
 
-     });
-    });
+
+    const usersRef = firebase.database().ref('users');
+
+
+    firebase.database().ref('users').push(data); //might change users
+    console.log("Sent to data base")
+
   }
+  
+
+  
+  // let user ="";
+  // let email=""
+  // usersRef.orderByChild('email').equalTo(this.state.user).on("value", function(snapshot) {
+  //   snapshot.forEach((function(child) { console.log(child.key) ;
+  //     user = child.key;
+      
+  //    firebase.database().ref('users/'+child.key+'/text').set({"Activity":"What I did"})
+  //       var updates = {};
+  //      updates['users/' + child.key +'/'+child.val().email] = {jkhd: 'sometextqwd'};
 
   render() {
     return(
       <div className = "form">
         {/* {this.props.user} */}
-        <h1><b>Write down your thoughts...</b></h1>
+        <h1><b>What did you accomplish?</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
         <Input.TextArea
