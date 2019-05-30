@@ -1,6 +1,7 @@
 import React from "react";
 import { List, Avatar } from 'antd';
 import './List.css'
+import tomato from './tomato.jpg'
 
 
 export default class Display extends React.Component {
@@ -22,10 +23,14 @@ render(){
     itemLayout="horizontal"
     dataSource={this.state.arr}
     renderItem={item => (
+
       <List.Item>
         <List.Item.Meta
-          //avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title={item[0]}
+                          avatar={
+                            <Avatar src={tomato}/>
+                          }
+          title={item[0]} 
+
           description={item[1]}
         />
       </List.Item>

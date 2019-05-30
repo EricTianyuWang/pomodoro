@@ -34,6 +34,9 @@ export default class Form extends React.Component {
 
   sendToDatabase = async() => {
     const date = (new Date()).toDateString();
+    //const date2 = new Date();
+    //console.log(date);
+    //console.log(date.getTime());
     var data = {
         email: this.state.user,
         title: this.state.title,

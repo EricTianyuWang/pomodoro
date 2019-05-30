@@ -23,6 +23,7 @@ constructor(props){
         user : this.props.user,
         title: "",
         text:'',
+        time:'',
         array: [],
     }
 }
@@ -37,7 +38,8 @@ display=async ()=>{
    // let returnArr =[];
     //console.log(title);
     //console.log(text);
-    let returnArr=[]
+    let returnArr =[];
+    let returnArr1=[]
     usersRef.orderByChild('email').equalTo(this.state.user).on("value", function(snapshot) {
 
      snapshot.forEach((function(child) { console.log(child.key) ;
@@ -46,11 +48,13 @@ display=async ()=>{
      console.log(child.val().text);
      let title = child.val().title;
      let text = child.val().text;
-     let littleArr = [title, text];
-    returnArr.push(littleArr)
+     let time = child.val().timeStamp;
+     let littleArr = [title + ": logged on " +time , text];
+    returnArr1.push(littleArr)
     
 
 }))
+returnArr = returnArr1.reverse();
 
 
 console.log(returnArr)
@@ -66,13 +70,11 @@ var timeout = setInterval(()=>
 } }, 100);
 }
 
-setResults =async (arr)=>{
-    console.log(arr);
-    this.setState({array: arr}, ()=> console.log(this.state.array))
-}
+
 
 
     render() {
+        
         if(this.state.array.length===0){
         return (
             <div>
@@ -86,6 +88,7 @@ setResults =async (arr)=>{
         )
         }
         else{
+            console.log(this.state.array)
             return(
                 <div>
                 <h1 style = {styles1} >Profile</h1>
