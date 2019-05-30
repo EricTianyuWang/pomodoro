@@ -2,10 +2,11 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import firebase from 'firebase'
-import firebaseConfig from './firebase.js'
-import Routing from './Routing.js'
-import './Home.css'
+import firebase from 'firebase';
+import firebaseConfig from './firebase.js';
+import Routing from './Routing.js';
+import './Home.css';
+import './tom.png';
 
 const FormItem = Form.Item;
 
@@ -153,6 +154,9 @@ handlePassword = (event) => {
             <FormItem>
               <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
             </FormItem>
+        </div>
+        <div>
+          <img src={require('tom.png')} />
         </div>
       
       </Form>
