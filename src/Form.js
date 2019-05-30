@@ -12,6 +12,7 @@ export default class Form extends React.Component {
       title: "",
       text: "",
       user: this.props.user,
+      timeStamp: ""
     }
   }
 
@@ -32,10 +33,15 @@ export default class Form extends React.Component {
   }
 
   sendToDatabase = async() => {
+    const date = (new Date()).toDateString();
+    //const date2 = new Date();
+    //console.log(date);
+    //console.log(date.getTime());
     var data = {
-      email: this.state.user,
+        email: this.state.user,
         title: this.state.title,
-        text: this.state.text
+        text: this.state.text,
+        timeStamp: date
     }
 
 
@@ -47,7 +53,6 @@ export default class Form extends React.Component {
 
   }
   
-
   
   // let user ="";
   // let email=""
@@ -76,6 +81,7 @@ export default class Form extends React.Component {
         <p></p>
         <p></p>
         <Button type="primary" size="large" onClick={this.handleClick}>Submit</Button>
+        <p>{this.state.timeStamp}</p>
     </div>
     );
   }

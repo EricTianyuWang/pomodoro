@@ -14,6 +14,10 @@
 .welcomeMessage{
     font-size: 245%;
     font-weight: bold;
-    text-decoration: underline;
     padding-bottom: 5px;
+}
+
+.tomato {
+    text-align: center;
+    padding-left: 100px;
 }

@@ -1,7 +1,19 @@
+
 import React, { Component } from 'react'
 import firebase from 'firebase';
+import './Profile.css'
+import List from './List.js'
 
 const usersRef = firebase.database().ref('users');
+var styles1 = {
+    //paddingTop:50,
+    //paddingLeft:400,
+    //display: 'flex',
+    //justifyContent: 'center',
+    paddingTop: 50,
+    textAlign: 'center'
+    
+  };
 
 export class Profile extends Component {
 constructor(props){
@@ -11,6 +23,7 @@ constructor(props){
         user : this.props.user,
         title: "",
         text:'',
+        time:'',
         array: [],
     }
 }
@@ -25,7 +38,8 @@ display=async ()=>{
    // let returnArr =[];
     //console.log(title);
     //console.log(text);
-    let returnArr=[]
+    let returnArr =[];
+    let returnArr1=[]
     usersRef.orderByChild('email').equalTo(this.state.user).on("value", function(snapshot) {
 
      snapshot.forEach((function(child) { console.log(child.key) ;
@@ -34,11 +48,13 @@ display=async ()=>{
      console.log(child.val().text);
      let title = child.val().title;
      let text = child.val().text;
-     let littleArr = [title, text];
-    returnArr.push(littleArr)
+     let time = child.val().timeStamp;
+     let littleArr = [title + ": logged on " +time , text];
+    returnArr1.push(littleArr)
     
 
 }))
+returnArr = returnArr1.reverse();
 
 
 console.log(returnArr)
@@ -54,31 +70,31 @@ var timeout = setInterval(()=>
 } }, 100);
 }
 
-setResults =async (arr)=>{
-    console.log(arr);
-    this.setState({array: arr}, ()=> console.log(this.state.array))
-}
+
 
 
     render() {
+        
         if(this.state.array.length===0){
         return (
             <div>
-                <h1>Profile</h1>
-               <p> {this.state.user}  </p>
-
+               <h1 style = {styles1} >Profile</h1>
+               <div className ="user"><p>{this.state.user}</p></div>
+              <div className="header"> Activity Log </div>
+               <div className="blank">No activities logged yet. Start working!</div> 
                 {/* Display user information */}
                 {/* Display log of user's past logs  */}
             </div>
         )
         }
         else{
+            console.log(this.state.array)
             return(
-                <div><h1>Profile</h1>
-                <p>{this.state.user}</p>
-                 {this.state.array.map(entry => (
-                    <li> {entry[0]} {entry[1]}  </li>
-                  ))}
+                <div>
+                <h1 style = {styles1} >Profile</h1>
+                <div className ="user"><p>{this.state.user}</p></div>
+                <div className="header"> Activity Log </div>
+                 <List arr = {this.state.array}/>
                 </div>
 
 
