@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import firebaseConfig from './firebase.js';
 import Routing from './Routing.js';
 import './Home.css';
+import pomodoro from './pomodoro.png';
 
 
 const FormItem = Form.Item;
@@ -126,7 +127,8 @@ handlePassword = (event) => {
     if(!this.state.submitted){
     return (
       <div class = "landingPage">
-          {/* <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1> */}
+          <h1 class = "welcomeMessage">Pomodoro Timer <img src={pomodoro} width="10%" height="10%"/></h1>
+          <div className="pom"></div>
           <h1>Please Login Here!</h1>
           <Form inline onSubmit={this.handleSubmit}>
           <h2><FormItem {...formItemLayout}>
@@ -157,6 +159,8 @@ handlePassword = (event) => {
         </div>      
       </Form>
       {this.state.message}
+
+     
       </div>
       
         )
