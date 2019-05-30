@@ -32,7 +32,7 @@ function Index() {
       <p> 
           The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
           Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
-          has been adopted in pair porgramming contexts. /n
+          has been adopted in pair programming contexts. 
       </p>
       <p>
         We hope you give it a try & enjoy. 
