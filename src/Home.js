@@ -6,7 +6,7 @@ import firebase from 'firebase';
 import firebaseConfig from './firebase.js';
 import Routing from './Routing.js';
 import './Home.css';
-import tom from './tom.png';
+
 
 const FormItem = Form.Item;
 
@@ -154,11 +154,7 @@ handlePassword = (event) => {
             <FormItem>
               <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
             </FormItem>
-        </div>
-        <div class="tomato">
-          <img src={tom} />
-        </div>
-      
+        </div>      
       </Form>
       {this.state.message}
       </div>

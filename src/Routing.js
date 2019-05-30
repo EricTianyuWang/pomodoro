@@ -24,6 +24,7 @@ function Index() {
   var styles3 = {
     textAlign: 'center',
     paddingLeft:100,
+    float: 'right',
   }
 
   return <div>
