@@ -1,3 +1,7 @@
 .timer {
     padding-left: 50px;
 }
+
+.timer_text {
+    color: green;
+}

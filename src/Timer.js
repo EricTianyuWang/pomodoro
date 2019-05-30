@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Clock from './Clock.js'
 import Form from './Form.js'
+import Clock from './Clock.js'
 
 class Timer extends React.Component {
     
@@ -9,6 +9,7 @@ class Timer extends React.Component {
         // console.log(this.props.user)
         return(
             <div> 
+                {/* <Clock user = {this.props.user}/> */}
                 <Clock user = {this.props.user}/>
                 <Form user = {this.props.user}/>
             </div>

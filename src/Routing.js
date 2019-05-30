@@ -1,9 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
+import Break from './Break.js'
 import Profile from './Profile.js'
 
-import { Menu } from 'antd';
+import { Menu, Icon } from 'antd';
+
+const { SubMenu }  = Menu;
 
 
 function Index() {
@@ -38,19 +41,40 @@ render(){
   <Router>
       <div>
           <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+
             <Menu.Item key="home">
               <Link to="/">Home</Link> 
             </Menu.Item>
-            <Menu.Item key="timer">
-              <Link to="/timer">Timer</Link> 
-            </Menu.Item>
+
+            <SubMenu
+              title={
+                <span className="submenu-title-wrapper">
+                  Timer
+                </span>
+              }
+            >
+              <Menu.Item key="setting:1">
+                <Link to="/pomodoro">Pomodoro</Link>
+              </Menu.Item>
+
+              <Menu.Item key="setting:2">
+                <Link to="/break">Break</Link>
+              </Menu.Item>
+            </SubMenu>
+
             <Menu.Item key="profile">
               <Link to="/profile/">Profile</Link>
             </Menu.Item>
+
           </Menu>
 
         <Route 
           path="/" exact component={Index} />
+        <Route 
+          path="/pomodoro" component={Timer} />
+        <Route
+          path="/break" component={Break} />
+
         <Route
           path='/timer'
           render={(props) => <Timer {...props} user={this.state.user} />}
