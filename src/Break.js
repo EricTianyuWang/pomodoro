@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Timer from "react-compound-timer";
-import {Button} from 'antd';
+import {Button, Icon} from 'antd';
 import './Clock.css';
 
 export class Break extends Component {
@@ -27,9 +27,9 @@ export class Break extends Component {
                         </div>
                         <br />
                         <div className="buttons">
-                            <Button onClick={resume} size="large">Start</Button>
-                            <Button onClick={pause} size="large">Pause</Button>
-                            <Button onClick={reset} size="large">Reset</Button>
+                            <Button onClick={resume} size="large" icon="caret-right">Start</Button>
+                            <Button onClick={pause} size="large" icon="pause">Pause</Button>
+                            <Button onClick={reset} size="large" icon="undo">Reset</Button>
                         </div>
                         </div>
                     </React.Fragment>
