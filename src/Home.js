@@ -6,7 +6,7 @@ import firebase from 'firebase';
 import firebaseConfig from './firebase.js';
 import Routing from './Routing.js';
 import './Home.css';
-import './tom.png';
+import tom from './tom.png';
 
 const FormItem = Form.Item;
 
@@ -155,8 +155,8 @@ handlePassword = (event) => {
               <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
             </FormItem>
         </div>
-        <div>
-          <img src={require('tom.png')} />
+        <div class="tomato">
+          <img src={tom} />
         </div>
       
       </Form>
