@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
 import Profile from './Profile.js'
 
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 
 
 function Index() {
@@ -62,7 +62,7 @@ render(){
       </div>
   </Router>
   );
-}
+  }
 }
 
 export default AppRouter;
