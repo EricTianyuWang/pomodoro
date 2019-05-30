@@ -16,9 +16,9 @@ export class Break extends Component {
                 {({ start, resume, pause, stop, reset, timerState }) => (
                     <React.Fragment>
                         <div className="timer">
-                        <div>
-                            <Timer.Minutes /> minutes <br/>
-                            <Timer.Seconds /> seconds
+                        <div className="timer_text">
+                            <Timer.Minutes /> :
+                            <Timer.Seconds /> 
                         </div>
                         <br />
                         <div>

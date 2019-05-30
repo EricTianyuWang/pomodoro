@@ -5,9 +5,7 @@ import Break from './Break.js'
 import Profile from './Profile.js'
 
 import { Menu, Icon } from 'antd';
-
 const { SubMenu }  = Menu;
-
 
 function Index() {
   return <div>
