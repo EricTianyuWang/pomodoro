@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
 import Break from './Break.js'
 import Profile from './Profile.js'
+import tom from './tom.png'
 
 import { Menu, Icon } from 'antd';
 const { SubMenu }  = Menu;
+
 
 function Index() {
 
@@ -18,6 +20,11 @@ function Index() {
     paddingLeft:50, 
     paddingRight:50,
   };
+
+  var styles3 = {
+    textAlign: 'center',
+    paddingLeft:100,
+  }
 
   return <div>
     <h1 style={styles1}>Welcome to the Pomodoro Timer</h1>
@@ -37,6 +44,9 @@ function Index() {
         We hope you give it a try & enjoy. 
       </p>
       <p>Annie, Eric, and Maggie</p>
+      <div style={styles3}>
+        <img src={tom}/>
+      </div>
     </div>   
   </div>;
 }
