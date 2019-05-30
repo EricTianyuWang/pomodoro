@@ -1,18 +1,7 @@
 import React, { Component } from 'react'
 import firebase from 'firebase';
-import './Profile.css'
-import List from './List.js'
 
 const usersRef = firebase.database().ref('users');
-var styles1 = {
-    //paddingTop:50,
-    //paddingLeft:400,
-    //display: 'flex',
-    //justifyContent: 'center',
-    paddingTop: 50,
-    textAlign: 'center'
-    
-  };
 
 export class Profile extends Component {
 constructor(props){
@@ -75,10 +64,9 @@ setResults =async (arr)=>{
         if(this.state.array.length===0){
         return (
             <div>
-               <h1 style = {styles1} >Profile</h1>
-               <div className ="user"><p>{this.state.user}</p></div>
-              <div className="header"> Activity Log </div>
-               <div className="blank">No activities logged yet. Start working!</div> 
+                <h1>Profile</h1>
+               <p> {this.state.user}  </p>
+
                 {/* Display user information */}
                 {/* Display log of user's past logs  */}
             </div>
@@ -86,11 +74,11 @@ setResults =async (arr)=>{
         }
         else{
             return(
-                <div>
-                <h1 style = {styles1} >Profile</h1>
-                <div className ="user"><p>{this.state.user}</p></div>
-                <div className="header"> Activity Log </div>
-                 <List arr = {this.state.array}/>
+                <div><h1>Profile</h1>
+                <p>{this.state.user}</p>
+                 {this.state.array.map(entry => (
+                    <li> {entry[0]} {entry[1]}  </li>
+                  ))}
                 </div>
 
 
