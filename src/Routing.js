@@ -10,15 +10,13 @@ const { SubMenu }  = Menu;
 function Index() {
 
   var styles1 = {
-    paddingTop:50,
-    paddingLeft:400,
+    textAlign: 'center',
   };
 
   var styles2 = {
     paddingLeft:50, 
     paddingRight:50,
   };
-
 
   return <div>
     <h1 style={styles1}>Welcome to the Pomodoro Timer</h1>
@@ -32,7 +30,7 @@ function Index() {
       <p> 
           The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
           Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
-          has been adopted in pair porgramming contexts. /n
+          has been adopted in pair porgramming contexts.
       </p>
       <p>
         We hope you give it a try & enjoy. 
