@@ -5,11 +5,9 @@ import { Form, Icon, Input, Button } from 'antd';
 import firebase from 'firebase'
 import firebaseConfig from './firebase.js'
 import Routing from './Routing.js'
-
-
+import './Home.css'
 
 const FormItem = Form.Item;
-
 
 class Home extends React.Component {
     constructor(props) {
@@ -101,10 +99,7 @@ else{
   console.log('not logged in')
 }
 
-
 })
-
-
 
 }
 
@@ -118,10 +113,6 @@ handlePassword = (event) => {
 
 }
 
-
-  
-
-
   render() {
 
     const formItemLayout =
@@ -133,29 +124,37 @@ handlePassword = (event) => {
     const { getFieldDecorator } = this.props.form;
     if(!this.state.submitted){
     return (
-      <div>
-          Please Login Here!
+      <div class = "landingPage">
+          <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1>
+          <h1>Please Login Here!</h1>
           <Form inline onSubmit={this.handleSubmit}>
-        <h2><FormItem {...formItemLayout}>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
-          })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Username" onChange ={this.handleEmail} />
-          )}
-        </FormItem></h2>
-        <h2><FormItem {...formItemLayout}>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" onChange={this.handlePassword}/>
-          )}
-        </FormItem></h2>
-        <FormItem>
-          <Button type="primary" htmlType="submit" onClick={this.handleSignIN}>Sign in</Button>
-        </FormItem>
-        <FormItem>
-          <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
-        </FormItem>
+          <h2><FormItem {...formItemLayout}>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+            })(
+              <Input addonBefore={<Icon type="user" />} placeholder="Username" onChange ={this.handleEmail} />
+            )}
+          </FormItem></h2>
+          <h2><FormItem {...formItemLayout}>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: 'Please input your Password!' }],
+            })(
+              <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" onChange={this.handlePassword}/>
+            )}
+          </FormItem></h2>
+        
+          <div className="signIn">
+            <FormItem>
+              <Button type="primary" htmlType="submit" onClick={this.handleSignIN}>Sign in</Button>
+            </FormItem>
+          </div>
+
+          <div className="signUp">
+            <FormItem>
+              <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
+            </FormItem>
+        </div>
+      
       </Form>
       {this.state.message}
       </div>

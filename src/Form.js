@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import {Input, Button} from 'antd';
 import firebase from './firebase';
+import './Form.css';
 
 export default class App extends React.Component {
 
@@ -62,7 +63,8 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className = "form">
+        {/* {this.props.user} */}
         <h1><b>Write down your thoughts...</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
