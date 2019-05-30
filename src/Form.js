@@ -37,6 +37,7 @@ export default class App extends React.Component {
     }
     var obj = firebase.database().ref('users/');
     var userEmail = "";
+    console.log(obj.orderByChild('email').equalTo(this.props.user).key);
     obj.orderByChild('email').equalTo(this.props.user).on("value", (snapshot) => {
       snapshot.forEach((childSnapshot) => {
         userEmail = childSnapshot.key;
