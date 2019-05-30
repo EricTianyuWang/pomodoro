@@ -38,28 +38,17 @@ export default class App extends React.Component {
     }
     var obj = firebase.database().ref('users/');
     var userEmail = "";
-    console.log(obj.orderByChild('email').equalTo(this.props.user).key);
     obj.orderByChild('email').equalTo(this.props.user).on("value", (snapshot) => {
       snapshot.forEach((childSnapshot) => {
         userEmail = childSnapshot.key;
-        console.log(userEmail);
-
+        console.log('user email' + userEmail);
+        // firebase.database().ref('users/'+userEmail+'/writing/').push(data);
      });
     });
-    console.log(userEmail)
-    firebase.database().ref('users/'+userEmail+'/writing/').push(data);
-    console.log("Sent to data base")
+    //console.log(userEmail)
+    //firebase.database().ref('users/'+userEmail+'/writing/').push(data);
+    //console.log("Sent to data base")
   }
-
-  getKey = () => {
-    
-    // obj.orderByChild('email').equalTo(this.props.user).on("value", function(snapshot) {
-    //   snapshot.forEach((function(child) { console.log(child.key) }); 
-    // });
-
-    
-
-}
 
   render() {
     return(
