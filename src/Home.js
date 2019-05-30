@@ -2,10 +2,11 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import firebase from 'firebase'
-import firebaseConfig from './firebase.js'
-import Routing from './Routing.js'
-import './Home.css'
+import firebase from 'firebase';
+import firebaseConfig from './firebase.js';
+import Routing from './Routing.js';
+import './Home.css';
+
 
 const FormItem = Form.Item;
 
@@ -125,7 +126,7 @@ handlePassword = (event) => {
     if(!this.state.submitted){
     return (
       <div class = "landingPage">
-          <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1>
+          {/* <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1> */}
           <h1>Please Login Here!</h1>
           <Form inline onSubmit={this.handleSubmit}>
           <h2><FormItem {...formItemLayout}>
@@ -153,8 +154,7 @@ handlePassword = (event) => {
             <FormItem>
               <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
             </FormItem>
-        </div>
-      
+        </div>      
       </Form>
       {this.state.message}
       </div>
