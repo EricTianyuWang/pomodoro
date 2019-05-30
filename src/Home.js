@@ -75,7 +75,7 @@ class Home extends React.Component {
         promise.then((result)=>{
 
           this.setState({submitted: true})
-          usersRef.push(user)
+          //usersRef.push(user)
         },
         (error)=>{
           (this.setState({message: error.message}));

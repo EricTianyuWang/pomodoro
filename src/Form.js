@@ -2,14 +2,16 @@ import React from 'react';
 import './App.css'
 import {Input, Button} from 'antd';
 import firebase from './firebase';
+import './Form.css';
 
-export default class App extends React.Component {
+export default class Form extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      text: ""
+      text: "",
+      user: this.props.user,
     }
   }
 
@@ -29,20 +31,39 @@ export default class App extends React.Component {
     this.sendToDatabase();
   }
 
-  sendToDatabase = () => {
+  sendToDatabase = async() => {
     var data = {
+      email: this.state.user,
         title: this.state.title,
         text: this.state.text
     }
-    firebase.database().ref('users/').push(data); //might change users
+
+
+    const usersRef = firebase.database().ref('users');
+
+
+    firebase.database().ref('users').push(data); //might change users
     console.log("Sent to data base")
+
   }
+  
+
+  
+  // let user ="";
+  // let email=""
+  // usersRef.orderByChild('email').equalTo(this.state.user).on("value", function(snapshot) {
+  //   snapshot.forEach((function(child) { console.log(child.key) ;
+  //     user = child.key;
+      
+  //    firebase.database().ref('users/'+child.key+'/text').set({"Activity":"What I did"})
+  //       var updates = {};
+  //      updates['users/' + child.key +'/'+child.val().email] = {jkhd: 'sometextqwd'};
 
   render() {
     return(
-      <div>
-        {this.props.user}
-        <h1><b>Write down your thoughts...</b></h1>
+      <div className = "form">
+        {/* {this.props.user} */}
+        <h1><b>What did you accomplish?</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
         <Input.TextArea

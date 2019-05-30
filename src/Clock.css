@@ -1,0 +1,25 @@
+.timer {
+    padding-left: 375px;
+    padding-bottom: 50px;
+    
+}
+
+.timer_text {
+    font-size: 120pt;
+    color: black; 
+    /* text-align: center; */
+
+}
+
+.minutes {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.seconds {
+    display: inline-block;
+}
+
+.buttons {
+    padding-left: 115px;
+}
