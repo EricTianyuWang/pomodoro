@@ -77,7 +77,7 @@ render(){
               }
             >
               <Menu.Item key="setting:1">
-                <Link to="/pomodoro">Pomodoro</Link>
+                <Link to="/timer">Pomodoro</Link>
               </Menu.Item>
 
               <Menu.Item key="setting:2">
@@ -93,8 +93,8 @@ render(){
 
         <Route 
           path="/" exact component={Index} />
-        <Route 
-          path="/pomodoro" component={Timer} />
+        {/* <Route 
+          path="/pomodoro" component={Timer} /> */}
         <Route
           path="/break" component={Break} />
 

@@ -6,6 +6,7 @@ import './Clock.css';
 export class Clock extends Component {
 
     render() {
+        console.log(this.props.user)
         return (
             <div>
             {/* <h2> Pomodoro Timer </h2> */}
