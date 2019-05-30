@@ -5,7 +5,7 @@ export class Profile extends Component {
         return (
             <div>
                 <h1>Your Profile</h1>
-                {/* Display Welcome, current user's name? */}
+                {this.props.user}
                 {/* Display user information */}
                 {/* Display log of user's past logs  */}
             </div>

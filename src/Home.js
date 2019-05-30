@@ -5,11 +5,9 @@ import { Form, Icon, Input, Button } from 'antd';
 import firebase from 'firebase'
 import firebaseConfig from './firebase.js'
 import Routing from './Routing.js'
-
-
+import './Home.css'
 
 const FormItem = Form.Item;
-
 
 class Home extends React.Component {
     constructor(props) {
@@ -27,12 +25,12 @@ class Home extends React.Component {
     this.setState({message: ""});
     e.preventDefault();
     
-    const usersRef = firebase.database().ref("users")
-    let user={
-      email: this.state.email,
-      pass: this.state.pass,
-    }
-    usersRef.push(user)
+    // const usersRef = firebase.database().ref("users")
+    // let user={
+    //   email: this.state.email,
+
+    // }
+    // usersRef.push(user)
     
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -65,9 +63,9 @@ class Home extends React.Component {
     const usersRef = firebase.database().ref("users")
     let user={
       email: this.state.email,
-      pass: this.state.pass,
+     // pass: this.state.pass,
     }
-    usersRef.push(user)
+    
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
@@ -77,6 +75,7 @@ class Home extends React.Component {
         promise.then((result)=>{
 
           this.setState({submitted: true})
+          usersRef.push(user)
         },
         (error)=>{
           (this.setState({message: error.message}));
@@ -100,10 +99,7 @@ else{
   console.log('not logged in')
 }
 
-
 })
-
-
 
 }
 
@@ -117,10 +113,6 @@ handlePassword = (event) => {
 
 }
 
-
-  
-
-
   render() {
 
     const formItemLayout =
@@ -132,29 +124,37 @@ handlePassword = (event) => {
     const { getFieldDecorator } = this.props.form;
     if(!this.state.submitted){
     return (
-      <div>
-          Please Login Here!
+      <div class = "landingPage">
+          <h1 class = "welcomeMessage">Welcome to the Pomodoro Timer</h1>
+          <h1>Please Login Here!</h1>
           <Form inline onSubmit={this.handleSubmit}>
-        <h2><FormItem {...formItemLayout}>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
-          })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Username" onChange ={this.handleEmail} />
-          )}
-        </FormItem></h2>
-        <h2><FormItem {...formItemLayout}>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" onChange={this.handlePassword}/>
-          )}
-        </FormItem></h2>
-        <FormItem>
-          <Button type="primary" htmlType="submit" onClick={this.handleSignIN}>Sign in</Button>
-        </FormItem>
-        <FormItem>
-          <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
-        </FormItem>
+          <h2><FormItem {...formItemLayout}>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+            })(
+              <Input addonBefore={<Icon type="user" />} placeholder="Username" onChange ={this.handleEmail} />
+            )}
+          </FormItem></h2>
+          <h2><FormItem {...formItemLayout}>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: 'Please input your Password!' }],
+            })(
+              <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" onChange={this.handlePassword}/>
+            )}
+          </FormItem></h2>
+        
+          <div className="signIn">
+            <FormItem>
+              <Button type="primary" htmlType="submit" onClick={this.handleSignIN}>Sign in</Button>
+            </FormItem>
+          </div>
+
+          <div className="signUp">
+            <FormItem>
+              <Button type="primary" htmlType="submit" onClick={this.handleSignUP}>Sign up</Button>
+            </FormItem>
+        </div>
+      
       </Form>
       {this.state.message}
       </div>
