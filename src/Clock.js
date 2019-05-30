@@ -29,7 +29,7 @@ export class Clock extends Component {
                             <div className="buttons">
                                 <Button onClick={resume} size="large" icon="caret-right">Start</Button>
                                 <Button onClick={pause} size="large" icon="pause">Pause</Button>
-                                <Button onClick={reset} size="large" icon="undo">Break</Button>
+                                <Button onClick={reset} size="large" icon="undo">Reset</Button>
                             </div>
                         </div>
                     </React.Fragment>

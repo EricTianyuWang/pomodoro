@@ -43,7 +43,7 @@ export default class App extends React.Component {
     return(
       <div className = "form">
         {/* {this.props.user} */}
-        <h1><b>Write down your thoughts...</b></h1>
+        <h1><b>What did you accomplish?</b></h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
         <Input.TextArea
