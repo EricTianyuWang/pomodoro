@@ -32,6 +32,15 @@ export default class Form extends React.Component {
     
     this.sendToDatabase();
 
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.setState({
+      title: "", 
+      text: "",
+    });
+
   }
 
   sendToDatabase = async() => {
@@ -46,15 +55,12 @@ export default class Form extends React.Component {
         timeStamp: date
     }
 
-
     const usersRef = firebase.database().ref('users');
-
 
     firebase.database().ref('users').push(data); //might change users
     console.log("Sent to data base")
 
   }
-  
   
   // let user ="";
   // let email=""
@@ -70,8 +76,11 @@ export default class Form extends React.Component {
     return(
       <div className = "form">
         {/* {this.props.user} */}
+
+
         <h1>What did you accomplish?</h1>
-        <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
+        <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange} value={this.state.title}/>
+
         <div style={{ margin: '20px 20px' }} />
         <Input.TextArea
           placeholder="Write here..."
@@ -79,6 +88,7 @@ export default class Form extends React.Component {
           size="small"
           autosize={{minRows: 8, maxRows: 12}}
           onChange={this.handleTextChange}
+          value = {this.state.text}
         />
         <p></p>
         <p></p>
