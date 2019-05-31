@@ -1,25 +1,34 @@
 import React from 'react';
-
+import axios from 'axios';
 export default class App extends React.Component {
+
+  state = {
+    quote: "start"
+  }
+
+  componentDidMount() {
+    this.callBackendAPI();
+  }
     
-	callBackendAPI = async (title) => {
-        axios
-        .get("/quote/" + title)
-        .then(res => {
-          this.setState({
-                    author: res.data
-                })
+	callBackendAPI = async () => {
+      axios
+      .get("http://localhost:9999/quote/")
+      .then(res => {
+        console.log("info" + res.data)
+        this.setState({
+          quote: res.data
         })
-      };
+      })
+      .catch(
+        console.log('error')
+      )
+    };
 
     render() {
         return(
-
-
         <div>
-        {this.callBackendAPI()}
+          {this.state.quote}
         </div>
-
         );
     }
 }

@@ -7,7 +7,7 @@ import Routing from './Routing.js'
 
 import Clock from './Clock';
 // import Profile from './Profile';
-
+import Quote from './Quote.js'
 
 export default class App extends React.Component {
 
@@ -17,6 +17,7 @@ export default class App extends React.Component {
 
       <div>
         <Home/>
+        <Quote/>
       </div>
 
     );

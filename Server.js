@@ -1,14 +1,25 @@
-
-
+const axios = require('axios')
 const express = require('express');
+var cors = require('cors')
 
 const app = express();
 const port = process.env.PORT || 9999;
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+app.use(cors())
 
 // create a GET route
+
+// app.get('/advice/', (req, res) => {
+//   axios.get("http://api.adviceslip.com/advice")
+//   .then(response => res.send(response.data.slip.advice))
+// });
+
 app.get('/quote/', (req, res) => {
-  const ans = "hi"
-  res.send(ans);
-});
+	axios.get("https://quota.glitch.me/random")
+  .then(response => {
+    res.send(response.data.quoteText + " -- " + response.data.quoteAuthor);
+  })
+})
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
