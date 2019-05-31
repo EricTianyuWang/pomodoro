@@ -15,13 +15,14 @@ function Index() {
 
   var styles1 = {
     paddingTop:50,
+    paddingBottom:10,
     textAlign: 'center',
   };
 
   var styles2 = {
     paddingLeft:50, 
     paddingRight:50,
-    fontSize:16,
+    fontSize:18,
   };
 
   var styles3 = {
