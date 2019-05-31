@@ -4,8 +4,10 @@ import Timer from './Timer.js';
 import Break from './Break.js'
 import Profile from './Profile.js'
 import tom from './tom.png'
+import firebase from 'firebase'
 
 import { Menu, Icon } from 'antd';
+
 const { SubMenu }  = Menu;
 
 
@@ -13,12 +15,14 @@ function Index() {
 
   var styles1 = {
     paddingTop:50,
+    paddingBottom:10,
     textAlign: 'center',
   };
 
   var styles2 = {
     paddingLeft:50, 
     paddingRight:50,
+    fontSize:18,
   };
 
   var styles3 = {
@@ -41,11 +45,11 @@ function Index() {
           Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped 
           kitchen timer that Cirillo used as a univeristy student.
       </p>
-      <p> 
+      {/* <p> 
           The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
           Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
           has been adopted in paired porgramming contexts.
-      </p>
+      </p> */}
       <p>
         We hope you give it a try & enjoy. 
       </p>
@@ -55,7 +59,9 @@ function Index() {
       </div>
     </div>   
   </div>;
+
 }
+
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -71,6 +77,23 @@ class AppRouter extends React.Component{
       current: e.key,
     });
   };
+
+signOut=()=>{
+
+  
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+    
+    window.location.reload();
+    
+    
+    
+      
+    }
+    
 
 render(){
   console.log(this.state.user)
@@ -104,14 +127,20 @@ render(){
               <Link to="/profile/">Profile</Link>
             </Menu.Item>
 
+            <Menu.Item key="signout" onClick={this.signOut}>
+              {/* <Link to="/">Sign Out</Link> */}
+              Sign Out
+            </Menu.Item>
+
           </Menu>
 
         <Route 
           path="/" exact component={Index} />
-        {/* <Route 
-          path="/pomodoro" component={Timer} /> */}
+
         <Route
           path="/break" component={Break} />
+
+ 
 
         <Route
           path='/timer'
