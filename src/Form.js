@@ -29,7 +29,9 @@ export default class Form extends React.Component {
   }
   
   handleClick = () => {
+    
     this.sendToDatabase();
+
   }
 
   sendToDatabase = async() => {
@@ -68,7 +70,7 @@ export default class Form extends React.Component {
     return(
       <div className = "form">
         {/* {this.props.user} */}
-        <h1><b>What did you accomplish?</b></h1>
+        <h1>What did you accomplish?</h1>
         <Input.TextArea placeholder="Title" rows={1} onChange={this.handleTitleChange}/>
         <div style={{ margin: '20px 20px' }} />
         <Input.TextArea
@@ -81,6 +83,7 @@ export default class Form extends React.Component {
         <p></p>
         <p></p>
         <Button type="primary" size="large" onClick={this.handleClick}>Submit</Button>
+     
         <p>{this.state.timeStamp}</p>
     </div>
     );

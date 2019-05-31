@@ -4,8 +4,10 @@ import Timer from './Timer.js';
 import Break from './Break.js'
 import Profile from './Profile.js'
 import tom from './tom.png'
+import firebase from 'firebase'
 
 import { Menu, Icon } from 'antd';
+
 const { SubMenu }  = Menu;
 
 
@@ -50,6 +52,23 @@ function Index() {
       </div>
     </div>   
   </div>;
+  window.location.reload();
+}
+
+function signOut(){
+
+  
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+
+window.location.reload();
+
+
+
+  
 }
 
 class AppRouter extends React.Component{
@@ -99,14 +118,20 @@ render(){
               <Link to="/profile/">Profile</Link>
             </Menu.Item>
 
+            <Menu.Item key="signout">
+              <Link to="/">Sign Out</Link>
+            </Menu.Item>
+
           </Menu>
 
         <Route 
           path="/" exact component={Index} />
-        {/* <Route 
-          path="/pomodoro" component={Timer} /> */}
+
         <Route
           path="/break" component={Break} />
+
+ <Route
+           path="/signout" component={signOut} />
 
         <Route
           path='/timer'
