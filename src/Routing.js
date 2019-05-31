@@ -21,6 +21,7 @@ function Index() {
   var styles2 = {
     paddingLeft:50, 
     paddingRight:50,
+    fontSize:16,
   };
 
   var styles3 = {
