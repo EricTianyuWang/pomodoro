@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "antd": "^3.19.1",
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
     "firebase": "^6.1.0",
+    "firebase-tools": "^6.10.0",
     "react": "^16.8.6",
     "react-compound-timer": "^1.0.13",
     "react-dom": "^16.8.6",
@@ -31,6 +34,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "proxy": "http://localhost:9999/quote"
   }
 }
