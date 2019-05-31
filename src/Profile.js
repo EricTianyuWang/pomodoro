@@ -79,7 +79,7 @@ var timeout = setInterval(()=>
         return (
             <div>
                {/* <h1 style = {styles1} >Profile</h1> */}
-               <div className ="user"><p>{this.state.user}</p></div>
+               <h1 className ="user"><p>{this.state.user}</p></h1>
                 <div className="header"> Activity Log </div>
                <div className="blank">No activities logged yet. Start working!</div> 
                 {/* Display user information */}
@@ -92,7 +92,7 @@ var timeout = setInterval(()=>
             return(
                 <div>
                 {/* <h1 style = {styles1} >Profile</h1> */}
-                <div className ="user"><p>{this.state.user}</p></div>
+                <h1 className ="user">{this.state.user}</h1>
                 <div className="header">  Activity Log  </div>
                  <List arr = {this.state.array}/>
                 </div>

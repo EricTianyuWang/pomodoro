@@ -1,7 +1,8 @@
 .user{
 
     text-align: center;
-    font-size: 24pt;
+    /* font-size: 24pt; */
+    padding-top: 50px;
     /* font-weight: bold; */
 }
 .header{
