@@ -52,24 +52,9 @@ function Index() {
       </div>
     </div>   
   </div>;
-  window.location.reload();
+
 }
 
-function signOut(){
-
-  
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
-
-window.location.reload();
-
-
-
-  
-}
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -85,6 +70,23 @@ class AppRouter extends React.Component{
       current: e.key,
     });
   };
+
+signOut=()=>{
+
+  
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+    
+    window.location.reload();
+    
+    
+    
+      
+    }
+    
 
 render(){
   console.log(this.state.user)
@@ -118,8 +120,9 @@ render(){
               <Link to="/profile/">Profile</Link>
             </Menu.Item>
 
-            <Menu.Item key="signout">
-              <Link to="/">Sign Out</Link>
+            <Menu.Item key="signout" onClick={this.signOut}>
+              {/* <Link to="/">Sign Out</Link> */}
+              Sign Out
             </Menu.Item>
 
           </Menu>
@@ -130,8 +133,7 @@ render(){
         <Route
           path="/break" component={Break} />
 
- <Route
-           path="/signout" component={signOut} />
+ 
 
         <Route
           path='/timer'
