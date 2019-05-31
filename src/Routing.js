@@ -30,6 +30,11 @@ function Index() {
   return <div>
     <h1 style={styles1}>Welcome to the Pomodoro Timer</h1>
     <div style={styles2}>
+       <p>
+          Navigate to the Timer tab above and select 'Pomodoro' for a twenty-five minute timer, 
+          or 'Break' for a five minute timer. On the 'Pomodoro' page, you can log events that you
+          completed during that time, and view those notes on the 'Profile' page.
+      </p>
       <p>
           The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
           The technique uses a timer to break down into intervals, traditionally 25 minutes in length, separated by short breaks.
