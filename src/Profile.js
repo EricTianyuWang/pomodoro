@@ -78,9 +78,9 @@ var timeout = setInterval(()=>
         if(this.state.array.length===0){
         return (
             <div>
-               <h1 style = {styles1} >Profile</h1>
+               {/* <h1 style = {styles1} >Profile</h1> */}
                <div className ="user"><p>{this.state.user}</p></div>
-              <div className="header"> Activity Log </div>
+                <div className="header"> Activity Log </div>
                <div className="blank">No activities logged yet. Start working!</div> 
                 {/* Display user information */}
                 {/* Display log of user's past logs  */}
@@ -91,15 +91,11 @@ var timeout = setInterval(()=>
             console.log(this.state.array)
             return(
                 <div>
-                <h1 style = {styles1} >Profile</h1>
+                {/* <h1 style = {styles1} >Profile</h1> */}
                 <div className ="user"><p>{this.state.user}</p></div>
-                <div className="header"> Activity Log </div>
+                <div className="header">  Activity Log  </div>
                  <List arr = {this.state.array}/>
                 </div>
-
-
-
-
             )
         }
     }

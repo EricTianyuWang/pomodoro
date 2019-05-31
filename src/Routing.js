@@ -44,11 +44,11 @@ function Index() {
           Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped 
           kitchen timer that Cirillo used as a univeristy student.
       </p>
-      <p> 
+      {/* <p> 
           The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
           Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
           has been adopted in paired porgramming contexts.
-      </p>
+      </p> */}
       <p>
         We hope you give it a try & enjoy. 
       </p>
