@@ -19,6 +19,7 @@ class Home extends React.Component {
             email:"",
             pass:"",
             message:"",
+            isLoggedIn: false,
 
         }
     }
@@ -51,7 +52,7 @@ class Home extends React.Component {
     });
     console.log(this.state.email);
     console.log(this.state.pass);
-    this.checkingUser();
+    //this.checkingUser();
 
     
   }
@@ -65,7 +66,7 @@ class Home extends React.Component {
     const usersRef = firebase.database().ref("users")
     let user={
       email: this.state.email,
-     // pass: this.state.pass,
+      pass: this.state.pass,
     }
     
     this.props.form.validateFields((err, values) => {
@@ -95,10 +96,12 @@ checkingUser =()=>{
 firebase.auth().onAuthStateChanged(firebaseUser => {
 if(firebaseUser){
   console.log(firebaseUser);
+  this.setState({isLoggedIn: true})
 
 }
 else{
   console.log('not logged in')
+  this.setState({isLoggedIn: false})
 }
 
 })
@@ -117,6 +120,7 @@ handlePassword = (event) => {
 
   render() {
 
+//console.log(this.state.isLoggedIn)
     const formItemLayout =
       
     {
