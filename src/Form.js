@@ -44,15 +44,12 @@ export default class Form extends React.Component {
         timeStamp: date
     }
 
-
     const usersRef = firebase.database().ref('users');
-
 
     firebase.database().ref('users').push(data); //might change users
     console.log("Sent to data base")
 
   }
-  
   
   // let user ="";
   // let email=""
