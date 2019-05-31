@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Timer from './Timer.js';
 import Break from './Break.js'
 import Profile from './Profile.js'
+import tom from './tom.png'
 
 import { Menu, Icon } from 'antd';
 const { SubMenu }  = Menu;
+
 
 function Index() {
 
   var styles1 = {
     paddingTop:50,
-    paddingLeft:400,
+    textAlign: 'center',
   };
 
   var styles2 = {
@@ -19,10 +21,20 @@ function Index() {
     paddingRight:50,
   };
 
+  var styles3 = {
+    textAlign: 'center',
+    paddingLeft:100,
+    float: 'right',
+  }
 
   return <div>
     <h1 style={styles1}>Welcome to the Pomodoro Timer</h1>
     <div style={styles2}>
+       <p>
+          Navigate to the Timer tab above and select 'Pomodoro' for a twenty-five minute timer, 
+          or 'Break' for a five minute timer. On the 'Pomodoro' page, you can log events that you
+          completed during that time, and view those notes on the 'Profile' page.
+      </p>
       <p>
           The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
           The technique uses a timer to break down into intervals, traditionally 25 minutes in length, separated by short breaks.
@@ -32,12 +44,15 @@ function Index() {
       <p> 
           The technique has been widely popularized by dozens of apps and websites providing timers and instructions. 
           Closely related concepts such as timeboxing and iterative and incrimental developement in software developement, the method
-          has been adopted in pair porgramming contexts. /n
+          has been adopted in paired porgramming contexts.
       </p>
       <p>
         We hope you give it a try & enjoy. 
       </p>
       <p>Annie, Eric, and Maggie</p>
+      <div style={styles3}>
+        <img src={tom}/>
+      </div>
     </div>   
   </div>;
 }
