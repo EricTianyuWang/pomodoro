@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Timer from "react-compound-timer";
 import {Button, Icon} from 'antd';
 import './Clock.css';
+import Quote from './Quote.js'
 
 export class Break extends Component {
     render() {
@@ -35,6 +36,13 @@ export class Break extends Component {
                     </React.Fragment>
                 )}
             </Timer>
+
+            <h1 className="quotes">
+                <Quote />
+            </h1>
+                
+
+
             </div>
         )
     }

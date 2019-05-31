@@ -18,7 +18,7 @@ app.use(cors())
 app.get('/quote/', (req, res) => {
 	axios.get("https://quota.glitch.me/random")
   .then(response => {
-    res.send(response.data.quoteText + " -- " + response.data.quoteAuthor);
+    res.send(response.data.quoteText + "  —  " + response.data.quoteAuthor);
   })
 })
 
